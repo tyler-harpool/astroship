@@ -5,31 +5,31 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
 
-// Filter projects entries with 'draft: false' & date before current date
-const publishedProjectEntries = await getCollection("projects", ({ data }) => {
+// Filter blog entries with 'draft: false' & date before current date
+const publishedBlogEntries = await getCollection("projects", ({ data }) => {
   return !data.draft && data.publishDate < new Date();
 });
 
 // Sort content entries by publication date
-publishedProjectEntries.sort(function (a, b) {
+publishedBlogEntries.sort(function (a, b) {
   return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
 });
 ---
 
-<Layout title="Projects">
+<Layout title="Blog">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">My latest work in progress projects.</Fragment>
+      <Fragment slot="title">My latest tutorials, how-to's, and insights.</Fragment>
       <Fragment slot="desc">
-        Mileage may vary
+        Opinions are my own.
       </Fragment>
     </Sectionhead>
     <main class="mt-16">
       <ul class="grid gap-16 max-w-4xl mx-auto">
         {
-          publishedProjectEntries.map((blogPostEntry, index) => (
+          publishedBlogEntries.map((blogPostEntry, index) => (
             <li>
-              <a href={`/projects/${blogPostEntry.slug}`}>
+              <a href={`/blog/${blogPostEntry.slug}`}>
                 <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
                   <Picture
                     src={blogPostEntry.data.image.src}
