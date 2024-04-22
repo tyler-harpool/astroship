@@ -1,0 +1,16 @@
+---
+draft: false
+title: "Why Rust?"
+snippet: "Rust is great"
+image: {
+    src: "https://unsplash.com/photos/a-screenshot-of-a-computer-C8Y88iqryKQ?&fit=crop&w=430&h=240",
+    alt: "full stack web development"
+}
+publishDate: "2024-04-22 11:39"
+category: "Tutorials"
+author: "Tyler Harpool"
+tags: [axum, backend, rust]
+---
+
+# Why is Rust so great?
+Compile driven development.
